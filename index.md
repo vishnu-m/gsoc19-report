@@ -1,8 +1,8 @@
 ## Details
 
-**Organisation - LabLua**
-**Project - C Header File Parser in Lua Using Clang AST**
-**Mentors - Gabriel de Quadros Ligneul, Hugo Musso Gualandi**
+**Organisation - LabLua**  <br/>
+**Project - C Header File Parser in Lua Using Clang AST** <br/>
+**Mentors - Gabriel de Quadros Ligneul, Hugo Musso Gualandi** <br/>
 
 ## Overview
 
