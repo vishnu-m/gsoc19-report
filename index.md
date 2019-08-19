@@ -117,5 +117,6 @@ The unit testing framework used was again *busted*.
 - Bundle up the lua-clang library into a LuaRocks package
 
 ### Contact
-- E-Mail : vishnumurali7000@gmail.com
+
+- E-Mail : [vishnumurali7000@gmail.com](mailto:vishnumurali7000@gmail.com "vishnumurali7000@gmail.com")
 - GitHub : [Vishnu-M](https://github.com/Vishnu-M "Vishnu-M")
