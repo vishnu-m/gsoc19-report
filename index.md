@@ -22,7 +22,7 @@ Declarations handled -
 - Typedefs
 - Variables
 
-This phase concerned only printing the AST(Abstract Syntax Tree) representation to `stdout`. 
+The objective of this phase was only to print the AST(Abstract Syntax Tree) representation to `stdout`. 
 
 The unit tests where made in plain shell script with the help of `cmp` command.
 
@@ -30,7 +30,7 @@ The unit tests where made in plain shell script with the help of `cmp` command.
 
 ## Phase 2
 
-The objective of this phase was to create Lua bindings for the Libclang functions used in the first phase, making use of the Lua C API. This was done so that the parser can be written in Lua itself using the bindings.
+The objective of this phase was to create Lua binding for the Libclang functions used in the first phase, making use of the Lua C API. This was done so that the parser can be written in Lua itself using the binding.
 
 Unit testing in Lua was done with the help of [busted](https://olivinelabs.com/busted/ "busted") framework. Documentation was also done for each of the functions.
 
@@ -38,7 +38,7 @@ Unit testing in Lua was done with the help of [busted](https://olivinelabs.com/b
 
 ## Phase 3
 
-The goal of the last phase was ultimately to build the parser in Lua. This was made along the same lines as the work done in first phase, but instead of just printing everything, making use of tables to form the corresponding AST representation in Lua.
+The goal of the last phase was ultimately to build the parser in Lua. This was made along the same lines as the work done in the first phase. But instead of just printing everything, using Lua tables to form the corresponding AST representation.
 
 The intitial goal was to represent the types as simple strings.
 
@@ -46,7 +46,7 @@ For example,
 
 `int* a[10]` has type `int* [10] `
 
-The final deliverable was to represent the types in a more elaborate manner i.e;
+The final deliverable was to represent the types in a more elaborate manner i.e for the same example above, type is represented as,
 
 ```lua
 type = {
@@ -60,35 +60,48 @@ type = {
 
 ```
 
-Citing another example,
+Citing an example of how the Lua representation of the AST looks like :
+
+For the C code - 
 
 ```c
 struct a
 {
         int b;
+        float **c;
 };
 
-struct a instance; 
+struct a instance;
 ```
-has corresponding Lua representation as - 
+the corresponding Lua representation as - 
 
 ```lua
-{ {
-        fields = { {
-            name = "b",
-            type = "int"
-          } },
-        name = "a",
-        tag = "struct"
+declarations = { {
+    fields = { {
+        name = "b",
+        type = "int"
       }, {
-        name = "instance",
-        storage_specifier = "none",
-        tag = "variable",
+        name = "c",
         type = {
-          decl = 1,                             --type pointing to the first declaration i.e; struct a
-          tag = "decl"
+          tag = "pointer",
+          type = {
+            tag = "pointer",
+            type = "float"
+          }
         }
-} }
+      } },
+    name = "a",
+    tag = "struct"
+  }, {
+    name = "instance",
+    storage_specifier = "none",
+    tag = "variable",
+    type = {
+      decl = 1, 		--type pointing to the first declaration i.e; struct a
+      tag = "decl"
+    }
+  } }
+
 ```
 
 Similarly, work for all the declarations mentioned have been completed.
