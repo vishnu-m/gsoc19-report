@@ -164,6 +164,7 @@ The unit testing framework used was again *busted*.
 - Add support for forward declared structs
 - Bundle up the lua-clang library into a LuaRocks package
 - Sync the project with Travis CI
+- Proper handling of error messages
 
 ### Contact
 
