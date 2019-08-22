@@ -62,7 +62,7 @@ The objective of this phase was to create Lua binding for the Libclang functions
 Example -
 Input : `sample.h`
 ```c
-struct student{
+struct student {
         int a;
 };
 
@@ -111,8 +111,7 @@ Citing an example of how the Lua representation of the AST looks like :
 For the C code - 
 
 ```c
-struct a
-{
+struct a {
         int b;
         float **c;
 };
