@@ -165,6 +165,10 @@ The unit testing framework used was again *busted*.
 - Sync the project with Travis CI
 - Proper handling of error messages
 
+### Credits
+
+I would like to thank my two mentors, Gabriel and Hugo for helping me throughout the whole GSoC period. Also, I am grateful to the LabLua community for giving me this wonderful opportunity. It has been an amazing experience all along.
+
 ### Contact
 
 - E-Mail : [vishnumurali7000@gmail.com](mailto:vishnumurali7000@gmail.com "vishnumurali7000@gmail.com")
